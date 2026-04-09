@@ -37,7 +37,7 @@ export function DemoShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      <div className="mx-auto flex max-w-[1600px] gap-6 px-4 py-4 lg:px-6">
+      <div className="mx-auto flex max-w-[1600px] gap-4 px-3 py-3 sm:px-4 sm:py-4 lg:gap-6 lg:px-6">
         <aside className="hidden w-[280px] shrink-0 lg:block">
           <div className="panel sticky top-4 flex min-h-[calc(100vh-2rem)] flex-col p-5">
             <Link href="/" className="rounded-[24px] border border-[var(--border)] bg-[var(--panel-muted)] p-5">
@@ -99,14 +99,14 @@ export function DemoShell({ children }: { children: ReactNode }) {
         </aside>
 
         <div className="min-w-0 flex-1 space-y-4">
-          <div className="panel sticky top-4 z-10 flex flex-col gap-4 px-5 py-4 backdrop-blur md:flex-row md:items-center md:justify-between">
+          <div className="panel z-10 flex flex-col gap-4 px-4 py-4 backdrop-blur sm:px-5 md:sticky md:top-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="section-kicker">Admin Demo</p>
               <p className="mt-2 text-sm leading-6 text-[var(--muted-foreground)]">
                 No auth gate in this portfolio build. Switch between owner and staff views to showcase role-based behavior.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
               <label className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
                 Demo role
               </label>
@@ -123,21 +123,24 @@ export function DemoShell({ children }: { children: ReactNode }) {
                   const query = nextParams.toString();
                   router.replace(query ? `${pathname}?${query}` : pathname);
                 }}
-                className="h-11 rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.7)] px-4 text-sm"
+                className="h-11 w-full rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.7)] px-4 text-sm sm:w-auto"
               >
                 <option value="admin">Owner / Admin</option>
                 <option value="staff">Staff member</option>
               </select>
               <Link
                 href="/book"
-                className={buttonVariants({ variant: "secondary", className: "whitespace-nowrap" })}
+                className={buttonVariants({
+                  variant: "secondary",
+                  className: "w-full whitespace-nowrap sm:w-auto",
+                })}
               >
                 Public booking flow
               </Link>
             </div>
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-1 lg:hidden">
+          <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:hidden">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
 

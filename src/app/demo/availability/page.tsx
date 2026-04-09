@@ -38,7 +38,7 @@ export default async function AvailabilityPage({
               {data.businessHours.map((hour) => (
                 <div
                   key={hour.id}
-                  className="flex items-center justify-between rounded-[22px] bg-[var(--panel-muted)] px-4 py-3 text-sm"
+                  className="flex flex-col gap-1 rounded-[22px] bg-[var(--panel-muted)] px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between"
                 >
                   <span>{hour.label}</span>
                   <span className="text-[var(--muted-foreground)]">
@@ -77,7 +77,7 @@ export default async function AvailabilityPage({
             <CardContent className="space-y-4">
               {staffRecords.map((member) => (
                 <div key={member.id} className="rounded-[24px] border bg-[rgba(255,255,255,0.55)] p-4">
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <p className="text-sm font-medium">{member.name}</p>
                       <p className="mt-1 text-sm text-[var(--muted-foreground)]">{member.title}</p>
@@ -141,4 +141,3 @@ export default async function AvailabilityPage({
     </div>
   );
 }
-

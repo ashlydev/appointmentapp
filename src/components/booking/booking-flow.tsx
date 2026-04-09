@@ -93,7 +93,7 @@ export function BookingFlow({
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_380px]">
       <Card className="overflow-hidden">
         <CardHeader className="border-b border-[rgba(201,186,167,0.55)] pb-5">
-          <div className="flex flex-wrap gap-2">
+          <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
             {steps.map((item, index) => (
               <button
                 key={item}
@@ -104,7 +104,7 @@ export function BookingFlow({
                   }
                 }}
                 className={cn(
-                  "rounded-full px-3 py-1.5 text-xs transition",
+                  "whitespace-nowrap rounded-full px-3 py-1.5 text-xs transition",
                   index === step
                     ? "bg-[var(--accent)] text-[var(--panel-strong)]"
                     : index < step
@@ -122,7 +122,7 @@ export function BookingFlow({
             <div className="space-y-6">
               <div>
                 <p className="section-kicker">Step 1</p>
-                <h2 className="mt-2 font-serif text-[2rem]">Choose a service</h2>
+                <h2 className="mt-2 font-serif text-[1.75rem] sm:text-[2rem]">Choose a service</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--muted-foreground)]">
                   Select the appointment type that matches the visit. Duration and pricing update
                   automatically in the summary panel.
@@ -172,7 +172,7 @@ export function BookingFlow({
             <div className="space-y-6">
               <div>
                 <p className="section-kicker">Step 2</p>
-                <h2 className="mt-2 font-serif text-[2rem]">Choose staff</h2>
+                <h2 className="mt-2 font-serif text-[1.75rem] sm:text-[2rem]">Choose staff</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--muted-foreground)]">
                   Staff selection is optional. Leave it open and the system will surface the best
                   available options for the chosen service.
@@ -244,7 +244,7 @@ export function BookingFlow({
             <div className="space-y-6">
               <div>
                 <p className="section-kicker">Step 3</p>
-                <h2 className="mt-2 font-serif text-[2rem]">Pick a date and time</h2>
+                <h2 className="mt-2 font-serif text-[1.75rem] sm:text-[2rem]">Pick a date and time</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--muted-foreground)]">
                   Slots respect service duration, buffer times, staff working hours, and blocked
                   periods from the admin schedule.
@@ -274,7 +274,7 @@ export function BookingFlow({
               </div>
 
               {slots.length > 0 ? (
-                <div className="grid gap-3 md:grid-cols-2">
+                <div className="grid gap-3 sm:grid-cols-2">
                   {slots.map((slot) => {
                     const slotStaff = data.staff.find((member) => member.id === slot.staffId);
 
@@ -316,7 +316,7 @@ export function BookingFlow({
             <div className="space-y-6">
               <div>
                 <p className="section-kicker">Step 4</p>
-                <h2 className="mt-2 font-serif text-[2rem]">Enter customer details</h2>
+                <h2 className="mt-2 font-serif text-[1.75rem] sm:text-[2rem]">Enter customer details</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--muted-foreground)]">
                   Collect the details the business actually needs to prepare, confirm, and follow up
                   on the appointment.
@@ -397,7 +397,7 @@ export function BookingFlow({
             <form action={submitAction} className="space-y-6">
               <div>
                 <p className="section-kicker">Step 5</p>
-                <h2 className="mt-2 font-serif text-[2rem]">Review and confirm</h2>
+                <h2 className="mt-2 font-serif text-[1.75rem] sm:text-[2rem]">Review and confirm</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--muted-foreground)]">
                   This creates a real demo appointment using the shared booking data layer and sends
                   you to a confirmation summary page.
@@ -444,11 +444,11 @@ export function BookingFlow({
               <input type="hidden" name="phone" value={customerDetails.phone} />
               <input type="hidden" name="notes" value={customerDetails.notes} />
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <SubmitBookingButton />
                 <button
                   type="button"
-                  className={buttonVariants({ variant: "ghost" })}
+                  className={buttonVariants({ variant: "ghost", className: "w-full sm:w-auto" })}
                   onClick={() => setStep(3)}
                 >
                   Edit details
@@ -458,11 +458,11 @@ export function BookingFlow({
           ) : null}
 
           {step < 4 ? (
-            <div className="mt-8 flex flex-wrap gap-3 border-t border-[rgba(201,186,167,0.55)] pt-6">
+            <div className="mt-8 flex flex-col gap-3 border-t border-[rgba(201,186,167,0.55)] pt-6 sm:flex-row sm:flex-wrap">
               {step > 0 ? (
                 <button
                   type="button"
-                  className={buttonVariants({ variant: "ghost" })}
+                  className={buttonVariants({ variant: "ghost", className: "w-full sm:w-auto" })}
                   onClick={() => setStep((current) => Math.max(0, current - 1))}
                 >
                   Back
@@ -470,7 +470,7 @@ export function BookingFlow({
               ) : null}
               <button
                 type="button"
-                className={buttonVariants({ className: "sm:ml-auto" })}
+                className={buttonVariants({ className: "w-full sm:ml-auto sm:w-auto" })}
                 onClick={() => setStep((current) => Math.min(4, current + 1))}
                 disabled={!canContinue}
               >
@@ -556,4 +556,3 @@ export function BookingFlow({
     </div>
   );
 }
-

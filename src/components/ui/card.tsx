@@ -13,14 +13,14 @@ export function CardHeader({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("space-y-2 p-6", className)} {...props} />;
+  return <div className={cn("space-y-2 p-5 sm:p-6", className)} {...props} />;
 }
 
 export function CardContent({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("px-6 pb-6", className)} {...props} />;
+  return <div className={cn("px-5 pb-5 sm:px-6 sm:pb-6", className)} {...props} />;
 }
 
 export function CardTitle({
@@ -43,4 +43,3 @@ export function CardDescription({
     <p className={cn("text-sm leading-6 text-[var(--muted-foreground)]", className)} {...props} />
   );
 }
-

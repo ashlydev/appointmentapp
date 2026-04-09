@@ -14,12 +14,12 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen px-4 py-6 lg:px-6">
       <div className="mx-auto max-w-7xl space-y-6">
-        <section className="panel overflow-hidden px-6 py-8 md:px-10 md:py-10">
+        <section className="panel overflow-hidden px-5 py-7 sm:px-6 sm:py-8 md:px-10 md:py-10">
           <div className="grid gap-10 xl:grid-cols-[minmax(0,1.2fr)_420px] xl:items-start">
             <div className="space-y-7">
               <div className="space-y-4">
                 <p className="section-kicker">Appointment Booking & Scheduling System</p>
-                <h1 className="max-w-4xl font-serif text-[3.3rem] leading-[0.92] text-[var(--foreground)] md:text-[4.8rem]">
+                <h1 className="max-w-4xl font-serif text-[2.65rem] leading-[0.92] text-[var(--foreground)] sm:text-[3.3rem] md:text-[4.8rem]">
                   Quiet luxury scheduling software for real service businesses.
                 </h1>
                 <p className="max-w-2xl text-base leading-8 text-[var(--muted-foreground)] md:text-lg">
@@ -29,13 +29,17 @@ export default async function HomePage() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <Link href="/book" className={buttonVariants({ size: "lg" })}>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link href="/book" className={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}>
                   Book appointment
                 </Link>
                 <Link
                   href="/demo"
-                  className={buttonVariants({ variant: "outline", size: "lg" })}
+                  className={buttonVariants({
+                    variant: "outline",
+                    size: "lg",
+                    className: "w-full sm:w-auto",
+                  })}
                 >
                   View admin demo
                 </Link>
@@ -101,7 +105,7 @@ export default async function HomePage() {
                       key={appointment.id}
                       className="rounded-[22px] border bg-[rgba(255,255,255,0.5)] p-4"
                     >
-                      <div className="flex items-start justify-between gap-3">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                         <div>
                           <p className="text-sm font-medium">
                             {appointment.customer.firstName} {appointment.customer.lastName}
@@ -110,7 +114,7 @@ export default async function HomePage() {
                             {appointment.service.name} with {appointment.staff?.name ?? "Assigned staff"}
                           </p>
                         </div>
-                        <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs">
+                        <span className="self-start rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs">
                           {formatDateTime(appointment.startsAt, "EEE h:mm a")}
                         </span>
                       </div>
@@ -164,7 +168,7 @@ export default async function HomePage() {
                   key={service.id}
                   className="rounded-[24px] border bg-[rgba(255,255,255,0.52)] p-4"
                 >
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <p className="text-sm font-medium">{service.name}</p>
                       <p className="mt-1 text-sm text-[var(--muted-foreground)]">{service.category}</p>
@@ -182,4 +186,3 @@ export default async function HomePage() {
     </main>
   );
 }
-

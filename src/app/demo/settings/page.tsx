@@ -85,12 +85,12 @@ export default async function SettingsPage({
                 <p className="mt-1 text-sm text-[var(--muted-foreground)]">{data.business.tagline}</p>
               </div>
               <div className="rounded-[24px] border bg-[rgba(255,255,255,0.55)] p-4">
-                <p className="text-sm text-[var(--foreground)]">{data.business.email}</p>
+                <p className="break-words text-sm text-[var(--foreground)]">{data.business.email}</p>
                 <p className="mt-1 text-sm text-[var(--muted-foreground)]">{data.business.phone}</p>
                 <p className="mt-1 text-sm text-[var(--muted-foreground)]">
                   {data.business.addressLine1}, {data.business.city}, {data.business.region}
                 </p>
-                <p className="mt-1 text-sm text-[var(--muted-foreground)]">{data.business.website}</p>
+                <p className="mt-1 break-words text-sm text-[var(--muted-foreground)]">{data.business.website}</p>
               </div>
             </CardContent>
           </Card>
@@ -173,7 +173,7 @@ export default async function SettingsPage({
                 {toggleFields.map((toggle) => (
                   <label
                     key={toggle.name}
-                    className="flex items-center gap-3 rounded-[22px] border bg-[rgba(255,255,255,0.55)] px-4 py-3 text-sm"
+                    className="flex items-start gap-3 rounded-[22px] border bg-[rgba(255,255,255,0.55)] px-4 py-3 text-sm"
                   >
                     <Checkbox
                       name={toggle.name}
@@ -196,7 +196,9 @@ export default async function SettingsPage({
               </div>
 
               {role === "staff" ? null : (
-                <Button type="submit">Save settings</Button>
+                <Button type="submit" className="w-full sm:w-auto">
+                  Save settings
+                </Button>
               )}
             </form>
           </CardContent>

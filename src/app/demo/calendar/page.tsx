@@ -236,9 +236,14 @@ export default async function CalendarPage({
                     <div className="mt-3 space-y-3">
                       {dayAppointments.length > 0 ? (
                         dayAppointments.map((appointment) => (
-                          <div
+                          <Link
                             key={appointment.id}
-                            className="rounded-[20px] bg-[var(--panel-muted)] p-3"
+                            href={
+                              role === "staff"
+                                ? `/demo/appointments/${appointment.id}?role=staff`
+                                : `/demo/appointments/${appointment.id}`
+                            }
+                            className="block rounded-[20px] bg-[var(--panel-muted)] p-3 transition hover:bg-[rgba(109,123,90,0.12)]"
                           >
                             <p className="text-sm font-medium">
                               {formatDateTime(appointment.startsAt, "h:mm a")}
@@ -246,7 +251,10 @@ export default async function CalendarPage({
                             <p className="mt-1 text-sm text-[var(--muted-foreground)]">
                               {appointment.customer.firstName} {appointment.customer.lastName}
                             </p>
-                          </div>
+                            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+                              {appointment.service.name}
+                            </p>
+                          </Link>
                         ))
                       ) : (
                         <p className="text-sm text-[var(--muted-foreground)]">No appointments.</p>
@@ -306,4 +314,3 @@ export default async function CalendarPage({
     </div>
   );
 }
-

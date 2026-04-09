@@ -42,7 +42,7 @@ export default async function StaffPage({
           return (
             <Card key={member.id}>
               <CardContent className="pt-6">
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
                       {member.role}
@@ -114,4 +114,3 @@ export default async function StaffPage({
     </div>
   );
 }
-

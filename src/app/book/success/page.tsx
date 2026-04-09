@@ -22,14 +22,14 @@ export default async function BookingSuccessPage({
         <Card className="px-2 py-2">
           <CardHeader className="pb-2">
             <p className="section-kicker">Booking confirmed</p>
-            <CardTitle className="text-[2.6rem]">Appointment summary</CardTitle>
+            <CardTitle className="text-[2.05rem] sm:text-[2.6rem]">Appointment summary</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="rounded-[28px] bg-[var(--panel-muted)] p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--muted-foreground)]">
                 Reference
               </p>
-              <p className="mt-3 font-serif text-4xl">{reference || "AR-DEMO"}</p>
+              <p className="mt-3 break-words font-serif text-[2rem] sm:text-4xl">{reference || "AR-DEMO"}</p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -67,11 +67,11 @@ export default async function BookingSuccessPage({
               without a live database connection.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Link href="/demo" className={buttonVariants()}>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link href="/demo" className={buttonVariants({ className: "w-full sm:w-auto" })}>
                 View admin demo
               </Link>
-              <Link href="/book" className={buttonVariants({ variant: "outline" })}>
+              <Link href="/book" className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}>
                 Book another appointment
               </Link>
             </div>
@@ -81,4 +81,3 @@ export default async function BookingSuccessPage({
     </main>
   );
 }
-

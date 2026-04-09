@@ -162,7 +162,7 @@ export default async function DashboardPage({
                   </div>
                   <div className="flex flex-wrap items-center gap-3">
                     <StatusBadge status={appointment.status} />
-                    <div className="text-right text-sm text-[var(--muted-foreground)]">
+                    <div className="text-left text-sm text-[var(--muted-foreground)] sm:text-right">
                       <p>{timeUntil(appointment.startsAt)}</p>
                       <p>{appointment.reference}</p>
                     </div>
@@ -211,7 +211,7 @@ export default async function DashboardPage({
                   key={appointment.id}
                   className="rounded-[22px] border bg-[rgba(255,255,255,0.5)] p-4"
                 >
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-sm font-medium">
                         {appointment.customer.firstName} {appointment.customer.lastName}
@@ -231,4 +231,3 @@ export default async function DashboardPage({
     </div>
   );
 }
-

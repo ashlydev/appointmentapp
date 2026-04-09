@@ -17,20 +17,20 @@ export default async function BookingPage({
   return (
     <main className="min-h-screen px-4 py-6 lg:px-6">
       <div className="mx-auto max-w-7xl space-y-6">
-        <div className="flex flex-wrap gap-3">
-          <Link href="/" className={buttonVariants({ variant: "ghost" })}>
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Link href="/" className={buttonVariants({ variant: "ghost", className: "w-full sm:w-auto" })}>
             Back to overview
           </Link>
-          <Link href="/demo" className={buttonVariants({ variant: "outline" })}>
+          <Link href="/demo" className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}>
             View admin demo
           </Link>
         </div>
 
-        <section className="panel px-6 py-8 md:px-10">
+        <section className="panel px-5 py-7 sm:px-6 sm:py-8 md:px-10">
           <p className="section-kicker">Public booking flow</p>
           <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <h1 className="font-serif text-[3rem] leading-[0.94] md:text-[4rem]">
+              <h1 className="font-serif text-[2.45rem] leading-[0.94] sm:text-[3rem] md:text-[4rem]">
                 Book a premium service appointment without friction.
               </h1>
               <p className="mt-4 text-sm leading-7 text-[var(--muted-foreground)] md:text-[15px]">
@@ -39,7 +39,7 @@ export default async function BookingPage({
                 booking rules.
               </p>
             </div>
-            <div className="rounded-[24px] border bg-[rgba(255,255,255,0.55)] px-5 py-4">
+            <div className="w-full rounded-[24px] border bg-[rgba(255,255,255,0.55)] px-5 py-4 lg:w-auto">
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--muted-foreground)]">
                 Demo business
               </p>
@@ -62,4 +62,3 @@ export default async function BookingPage({
     </main>
   );
 }
-

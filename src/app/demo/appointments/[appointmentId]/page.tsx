@@ -130,7 +130,7 @@ export default async function AppointmentDetailPage({
                   key={appointment.id}
                   className="rounded-[22px] border bg-[rgba(255,255,255,0.52)] p-4"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <p className="text-sm font-medium">{appointment.service.name}</p>
                       <p className="mt-1 text-sm text-[var(--muted-foreground)]">
